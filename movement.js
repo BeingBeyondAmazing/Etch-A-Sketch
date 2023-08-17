@@ -4,10 +4,7 @@ function addHover(){
     const grid = document.querySelectorAll(".gridPiece");
     grid.forEach(function(piece) {
     piece.onmouseenter = function(){
-        piece.classList.toggle("active")
-    }
-    piece.onmouseout = function(){
-        piece.classList.toggle("active")
+        piece.classList.add("active")
     }
 })
 }
