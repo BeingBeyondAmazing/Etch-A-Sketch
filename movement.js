@@ -1,12 +1,21 @@
 newGrid(16);
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 addHover();
+
+
 function addHover(){
     const grid = document.querySelectorAll(".gridPiece");
     grid.forEach(function(piece) {
-    piece.onmouseenter = function(){
-        piece.classList.add("active")
-    }
-})
+        piece.addEventListener('mouseover',changeColor)
+        piece.addEventListener('mousedown',changeColor)
+    })
+}
+
+function changeColor(e){
+    if (e.type === 'mouseover' && !mouseDown) return;
+    e.target.classList.add("active");
 }
 
 function newGrid(gridSize = 16){
