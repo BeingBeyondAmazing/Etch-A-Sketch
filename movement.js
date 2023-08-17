@@ -1,6 +1,8 @@
 newGrid(16);
-const grid = document.querySelectorAll(".gridPiece");
-grid.forEach(function(piece) {
+addHover();
+function addHover(){
+    const grid = document.querySelectorAll(".gridPiece");
+    grid.forEach(function(piece) {
     piece.onmouseenter = function(){
         piece.classList.toggle("active")
     }
@@ -8,6 +10,7 @@ grid.forEach(function(piece) {
         piece.classList.toggle("active")
     }
 })
+}
 
 function newGrid(gridSize = 16){
     const container = document.querySelector('#container');
@@ -29,10 +32,10 @@ function removeAllChildNodes(parent) {
 
 const container = document.querySelector('#container');
 
-//removeAllChildNodes(container);
-
 const button = document.querySelector('.button-23');
 button.addEventListener('click', e => {
     let gridSize = prompt("Enter a Grid Size 0-100");
+    removeAllChildNodes(container);
     newGrid(gridSize);
-});
+    addHover();
+}); 
