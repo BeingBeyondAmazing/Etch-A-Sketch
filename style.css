@@ -16,8 +16,8 @@ body{
 }
 
 .gridPiece{
-    min-height: 100px;
-    min-width: 100px;
+    height: 100px;
+    width: 100px;
     margin : 0;
 }
 

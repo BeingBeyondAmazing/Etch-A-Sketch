@@ -17,8 +17,9 @@ function newGrid(gridSize = 16){
     for(let i = 0; i< gridSize * gridSize; i++){
         const div = document.createElement("div");
         div.classList.add("gridPiece");
-        div.style.width = "100px";
-        div.style.height = "100px";
+        let squareSize = "" + 1600/gridSize +"px";
+        div.style.width = squareSize;
+        div.style.height = squareSize;
         container.appendChild(div);
         console.log("ok");
     } 
