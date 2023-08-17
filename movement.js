@@ -1,15 +1,4 @@
-const holder = document.createElement("div");
-holder.classList.add("holder");
-for(let i = 0; i< 16 * 16; i++){
-    const div = document.createElement("div");
-    div.classList.add("gridPiece");
-    div.style.width = '100px';
-    div.style.height = '100px';
-    holder.appendChild(div);
-}
-
-document.body.appendChild(holder);
-
+newGrid(16);
 const grid = document.querySelectorAll(".gridPiece");
 grid.forEach(function(piece) {
     piece.onmouseenter = function(){
@@ -21,20 +10,26 @@ grid.forEach(function(piece) {
 })
 
 function newGrid(gridSize = 16){
-    const holder = document.createElement('div')
-    holder.classList.add("holder");
-    for(let i = 0; i < holder.childNodes.length; i++){
-        holder.removeChild(holder.childNodes[i]);
-    }
-
+    const container = document.querySelector('#container');
     for(let i = 0; i< gridSize * gridSize; i++){
         const div = document.createElement("div");
         div.classList.add("gridPiece");
         div.style.width = "100px";
         div.style.height = "100px";
-        holder.appendChild(div);
+        container.appendChild(div);
+        console.log("ok");
     } 
 }
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+const container = document.querySelector('#container');
+
+//removeAllChildNodes(container);
 
 const button = document.querySelector('.button-23');
 button.addEventListener('click', e => {
